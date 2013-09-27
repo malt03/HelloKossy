@@ -1,0 +1,16 @@
+: cascade base
+: around content -> {
+<h1><: $greeting :> <: $c.stash.site_name :></h1>
+
+<form method="post" action="<: $c.req.uri_for('create') :>">
+  <input name="body" type="textarea" />
+  <input type="submit" />
+</form>
+
+<br/>
+: for $rows -> $Hello {
+<: $Hello.TEXT :><br/>
+: }
+
+: }
+
