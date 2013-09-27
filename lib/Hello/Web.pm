@@ -26,14 +26,15 @@ get '/' => sub {
 
 	$sth->execute;
 	my $rows = $sth->fetchrow;
-
+	
 	$sth->finish;
 	$dbh->disconnect;
 
 	$c->render('index.tx', {
-		rows => $rows,
+		#rows => $rows,
 		greeting => "HelloKossy",
     });
+	
 };
 
 get '/json' => sub {
