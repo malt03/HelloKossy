@@ -25,7 +25,8 @@ get '/' => sub {
 	my $sth = $dbh->prepare("SELECT * FROM Hello");
 
 	$sth->execute;
-	my $rows = $sth->fetchrow;
+	my @rows = $sth->fetch();
+	die @rows;
 	
 	$sth->finish;
 	$dbh->disconnect;
